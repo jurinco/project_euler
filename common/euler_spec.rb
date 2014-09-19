@@ -1,4 +1,6 @@
-require_relative 'factors'
+require_relative 'euler'
+
+include Euler
 
 describe 'factors' do
   it 'returns the correct result' do

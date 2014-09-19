@@ -1,4 +1,6 @@
-require_relative 'factors'
+require_relative '../common/euler'
+
+include Euler
 
 tri_nums = Enumerator.new do |y|
   index = 0
@@ -11,8 +13,10 @@ tri_nums = Enumerator.new do |y|
 end
 
 beginning_time = Time.now
-tri_nums.find { |t|
+solution = tri_nums.find { |t|
   factors(t).length > 500
 }
+puts "solution: #{solution}"
+
 end_time = Time.now
 puts "Time elapsed #{(end_time - beginning_time)} seconds"
