@@ -11,10 +11,7 @@ max = 0
 grid.each do |row|
   (0..16).each do |i|
     product = row[i...i+4].reduce(:*)
-    if product > max
-      # puts "left, new max| #{row[i...i+4]} => #{product}"
-      max = product
-    end
+    max = product if product > max
   end
 end
 
@@ -25,10 +22,7 @@ end
     (0..3).each do |k|
       product *= grid[i+k][j]
     end
-    if product > max
-      # puts "#{row[i...i+4].join(' ')} => #{product}"
-      max = product
-    end
+    max = product if product > max
   end
 end
 
@@ -54,5 +48,5 @@ end
   end
 end
 
-puts max
+puts "max product: #{max}"
 
