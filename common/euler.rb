@@ -22,11 +22,4 @@ module Euler
     end
     new_num.flatten.join
   end
-
-  def benchmark
-    begin_time = Time.now
-    result = yield
-    puts "Time elapsed #{(Time.now - begin_time)} seconds"
-    result
-  end
 end
