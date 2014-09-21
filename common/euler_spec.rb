@@ -13,3 +13,13 @@ describe 'factors' do
     expect(factors(28)).to eql([1,2,4,7,14,28])
   end
 end
+
+describe 'number_with_underscore_delimiter' do
+  it 'returns the correct results' do
+    expect(number_with_underscore_delimiter(1_000)).to eql('1_000')
+    expect(number_with_underscore_delimiter(1_234)).to eql('1_234')
+    expect(number_with_underscore_delimiter(34_567)).to    eql    '34_567'
+    expect(number_with_underscore_delimiter(234_567)).to   eql   '234_567'
+    expect(number_with_underscore_delimiter(1_234_567)).to eql '1_234_567'
+  end
+end
