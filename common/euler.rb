@@ -35,4 +35,8 @@ module Euler
     new_num.flatten.join
   end
 
+  def proper_divisors(n)
+    factors(n)[0..-2]
+  end
+
 end
