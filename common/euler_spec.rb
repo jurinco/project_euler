@@ -2,6 +2,14 @@ require_relative 'euler'
 
 include Euler
 
+describe 'abundant_number?' do
+  it 'returns the correct result' do
+    expect(abundant_number?(10)).to eql(false)
+    expect(abundant_number?(11)).to eql(false)
+    expect(abundant_number?(12)).to eql(true)
+  end
+end
+
 describe 'factors' do
   it 'returns the correct result' do
     expect(factors(1)).to eql([1])
@@ -21,5 +29,13 @@ describe 'number_with_underscore_delimiter' do
     expect(number_with_underscore_delimiter(34_567)).to    eql    '34_567'
     expect(number_with_underscore_delimiter(234_567)).to   eql   '234_567'
     expect(number_with_underscore_delimiter(1_234_567)).to eql '1_234_567'
+  end
+end
+
+describe 'perfect_number?' do
+  it 'returns the correct result' do
+    expect(perfect_number?(26)).to eql(false)
+    expect(perfect_number?(27)).to eql(false)
+    expect(perfect_number?(28)).to eql(true)
   end
 end

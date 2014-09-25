@@ -1,5 +1,9 @@
 module Euler
 
+  def abundant_number?(n)
+    proper_divisors(n).reduce(:+) > n
+  end
+
   # binomial theorem, n choose k
   def binomial(n,k)
     return 1 if n-k <= 0
@@ -33,6 +37,10 @@ module Euler
       new_num.unshift(arr.pop(3))
     end
     new_num.flatten.join
+  end
+
+  def perfect_number?(n)
+    proper_divisors(n).reduce(:+) == n
   end
 
   def proper_divisors(n)
