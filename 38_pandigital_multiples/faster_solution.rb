@@ -1,6 +1,6 @@
 def pandigital_concat(n)
-  s = ''
-  (1..9).each do |m|
+  s = n.to_s
+  (2..9).each do |m|
     s += (n * m).to_s
     break if s.length >= 9
   end
