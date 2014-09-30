@@ -47,4 +47,30 @@ module Euler
     factors(n)[0..-2]
   end
 
+  def triangular_num(n)
+    n * (n+1) / 2
+  end
+
+  def triangular_num?(x)
+    Math.sqrt(8*x + 1) % 1 == 0
+  end
+
+  def pentagonal_num(n)
+    n * (3*n-1) / 2
+  end
+
+  def pentagonal_num?(x)
+    n = (Math.sqrt(24*x+1) + 1) / 6
+    n % 1 == 0
+  end
+
+  def hexagonal_num(n)
+    n * (2*n-1)
+  end
+
+  def hexagonal_num?(x)
+    n = (Math.sqrt(8*x+1) + 1) / 4
+    n % 1 == 0
+  end
+
 end

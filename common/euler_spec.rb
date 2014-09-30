@@ -39,3 +39,42 @@ describe 'perfect_number?' do
     expect(perfect_number?(28)).to eql(true)
   end
 end
+
+
+describe 'triangular_num' do
+  it 'returns the correct results' do
+    expect((1..5).map { |n| triangular_num(n) }).to eql([1, 3, 6, 10, 15])
+  end
+end
+
+describe 'triangular_num?' do
+  it 'returns the correct results' do
+    expect([1, 3, 6, 10, 15].all? { |n| triangular_num?(n) }).to eql(true)
+  end
+end
+
+
+describe 'pentagonal_num' do
+  it 'returns the correct results' do
+    expect((1..5).map { |n| pentagonal_num(n) }).to eql([1, 5, 12, 22, 35])
+  end
+end
+
+describe 'pentagonal_num?' do
+  it 'returns the correct results' do
+    expect([1, 5, 12, 22, 35].all? { |n| pentagonal_num?(n) }).to eql(true)
+  end
+end
+
+
+describe 'hexagonal_num' do
+  it 'returns the correct results' do
+    expect((1..5).map { |n| hexagonal_num(n) }).to eql([1, 6, 15, 28, 45])
+  end
+end
+
+describe 'hexagonal_num?' do
+  it 'returns the correct results' do
+    expect([1, 6, 15, 28, 45].all? { |n| hexagonal_num?(n) }).to eql(true)
+  end
+end
