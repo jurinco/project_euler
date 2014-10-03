@@ -1,3 +1,5 @@
+# Find the largest palindrome made from the product of two n-digit numbers.
+# Return the two digits and their product
 def largest_palindrome_product(num_of_digits)
   upper_lim = 10 ** num_of_digits - 1
   lower_lim =  10 ** (num_of_digits - 1)
