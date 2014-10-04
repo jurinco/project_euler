@@ -2,11 +2,11 @@ require_relative 'euler'
 include Euler
 
 describe Integer do
-  describe '#abundant_number?' do
+  describe '#abundant?' do
     it 'returns the correct result' do
-      expect(10.abundant_number?).to eql(false)
-      expect(11.abundant_number?).to eql(false)
-      expect(12.abundant_number?).to eql(true)
+      expect(10.abundant?).to eql(false)
+      expect(11.abundant?).to eql(false)
+      expect(12.abundant?).to eql(true)
     end
   end
 

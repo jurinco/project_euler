@@ -5,7 +5,7 @@ include Euler
 limit = 28_123
 abundant_numbers = []
 (12..limit).each do |n|
-  abundant_numbers << n if n.abundant_number?
+  abundant_numbers << n if n.abundant?
 end
 
 sums = []
@@ -18,5 +18,5 @@ end
 sums.sort!.uniq!
 
 puts Benchmark.measure {
-  puts (1..limit).reject { |el| sums.include?(el) }.reduce(:+)
+  puts (1..limit).reject { |el| sums.include?(el) }.reduce(:+) # => 4179871
 }

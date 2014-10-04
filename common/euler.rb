@@ -1,5 +1,5 @@
 class Integer
-  def abundant_number?
+  def abundant?
     self.proper_divisors.reduce(:+) > self
   end
 
