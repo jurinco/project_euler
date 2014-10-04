@@ -6,4 +6,5 @@ while d.year < 2001
   sunday_count += 1 if d.sunday?
   d >>= 1 # increment month
 end
-puts sunday_count
+
+p sunday_count # => 171
