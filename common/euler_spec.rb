@@ -61,6 +61,15 @@ describe Integer do
 end
 
 describe Euler do
+  describe 'binomial' do
+    it 'returns the correct results' do
+      expect(binomial(12,12)).to eql(1)
+      expect(binomial(14,2)).to eql(91)
+      expect(binomial(14,12)).to eql(91)
+      expect(binomial(30,18)).to eql(86_493_225)
+    end
+  end
+
   describe 'number_with_underscore_delimiter' do
     it 'returns the correct results' do
       expect(number_with_underscore_delimiter(1_000)).to eql('1_000')
