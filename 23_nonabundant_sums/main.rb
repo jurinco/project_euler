@@ -5,7 +5,7 @@ include Euler
 limit = 28_123
 abundant_numbers = []
 (12..limit).each do |n|
-  abundant_numbers << n if abundant_number?(n)
+  abundant_numbers << n if n.abundant_number?
 end
 
 sums = []

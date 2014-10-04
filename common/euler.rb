@@ -1,4 +1,8 @@
 class Integer
+  def abundant_number?
+    self.proper_divisors.reduce(:+) > self
+  end
+
   def factors
     f_list = []
     step = self.even? ? 1 : 2
@@ -18,10 +22,6 @@ class Integer
 end
 
 module Euler
-
-  def abundant_number?(n)
-    n.proper_divisors.reduce(:+) > n
-  end
 
   # binomial theorem, n choose k
   def binomial(n,k)
