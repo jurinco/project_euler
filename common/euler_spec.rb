@@ -62,8 +62,22 @@ end
 
 describe Euler do
   describe 'binomial' do
-    it 'returns the correct results' do
+    it 'returns 0 if n < k' do
+      expect(binomial(5,6)).to eql(0)
+      expect(binomial(2,7)).to eql(0)
+    end
+
+    it 'returns 1 if n == k' do
       expect(binomial(12,12)).to eql(1)
+      expect(binomial(23_456,23_456)).to eql(1)
+    end
+
+    it 'returns 1 if k <= 0' do
+      expect(binomial(23_456,0)).to eql(1)
+      expect(binomial(12,-1)).to eql(1)
+    end
+
+    it 'returns the correct results' do
       expect(binomial(14,2)).to eql(91)
       expect(binomial(14,12)).to eql(91)
       expect(binomial(30,18)).to eql(86_493_225)

@@ -44,8 +44,8 @@ end
 module Euler
   # binomial theorem, n choose k
   def binomial(n,k)
-    return 1 if n-k <= 0
-    return 1 if k <= 0
+    return 0 if n-k < 0
+    return 1 if n == k || k <= 0
     n.factorial / ( k.factorial * (n-k).factorial )
   end
 
