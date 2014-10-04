@@ -1,12 +1,30 @@
-require_relative 'collatz'
-require_relative '../common/euler'
 require 'benchmark'
 
-include Euler
+def collatz_length(n)
+  length = 1
+  while n > 1
+    length += 1
+    if n % 2 == 0
+      n /= 2
+    else
+      n = n * 3 + 1
+    end
+  end
+  length
+end
 
-limit = 10_000
+def longest_collatz(limit = 1_000_000)
+  longest = [1,1]
+  (2..limit).each do |n|
+    length = collatz_length(n)
+    longest = [n, length] if length > longest[1]
+  end
+  longest
+end
+
+# Test Case
+p [collatz_length(13), collatz_length(13) == 10]
 
 puts Benchmark.measure {
-  longest = longest_collatz(limit)
-  puts "longest collatz under #{number_with_underscore_delimiter(limit)}: #{longest[0]} => #{longest[1]}"
+  puts "result: #{longest_collatz(1_000_000)[0]}"
 }
