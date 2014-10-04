@@ -6,7 +6,7 @@ def sum_digits(n)
 end
 
 # Test Case
-n = factorial(10)
+n = 10.factorial
 p [sum_digits(n), sum_digits(n) == 27]
 
-p sum_digits(factorial(100)) # => 648
+p sum_digits(100.factorial # => 648

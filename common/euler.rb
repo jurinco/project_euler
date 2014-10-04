@@ -3,6 +3,11 @@ class Integer
     self.proper_divisors.reduce(:+) > self
   end
 
+  def factorial
+    return 1 if self == 0
+    (1..self).reduce(:*)
+  end
+
   def factors
     f_list = []
     step = self.even? ? 1 : 2
@@ -21,18 +26,13 @@ class Integer
   end
 end
 
-module Euler
 
+module Euler
   # binomial theorem, n choose k
   def binomial(n,k)
     return 1 if n-k <= 0
     return 1 if k <= 0
-    factorial(n) / ( factorial(k) * factorial( n - k ) )
-  end
-
-  def factorial(n)
-    return 1 if n == 0
-    (1..n).reduce(:*)
+    n.factorial / ( k.factorial * (n-k).factorial )
   end
 
   def factors(n)
@@ -87,5 +87,4 @@ module Euler
     n = (Math.sqrt(8*x+1) + 1) / 4
     n % 1 == 0
   end
-
 end

@@ -10,6 +10,15 @@ describe Integer do
     end
   end
 
+  describe '#factorial' do
+    it 'returns the correct result' do
+      expect(0.factorial).to eql(1)
+      expect(1.factorial).to eql(1)
+      expect(5.factorial).to eql(120)
+      expect(13.factorial).to eql(6_227_020_800)
+    end
+  end
+
   describe '#factors' do
     it 'returns the correct result' do
       expect(1.factors).to eql([1])
