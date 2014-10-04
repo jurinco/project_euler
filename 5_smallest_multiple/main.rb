@@ -16,4 +16,4 @@ vals = (6..10).to_a
 p [smallest_multiple(vals), smallest_multiple(vals) == 2520]
 
 vals = (11..20).to_a
-puts smallest_multiple(vals) # 232792560
+puts smallest_multiple(vals) # => 232792560

@@ -13,4 +13,4 @@ end
 p [multiples(10), multiples(10) == 23]
 p [multiples(15), multiples(15) == 45]
 
-p multiples # 233168
+p multiples # => 233168

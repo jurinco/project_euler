@@ -8,4 +8,4 @@ end
 # Test Cases
 p [largest_prime_factor(13_195), largest_prime_factor(13_195) == 29]
 
-p largest_prime_factor(600_851_475_143) # 6857
+p largest_prime_factor(600_851_475_143) # => 6857

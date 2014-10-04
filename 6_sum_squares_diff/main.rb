@@ -20,4 +20,4 @@ p [sum_square_diff(vals), sum_square_diff(vals) == 2640]
 
 
 vals = (1..100).to_a
-puts sum_square_diff(vals) # 25164150
+puts sum_square_diff(vals) # => 25164150

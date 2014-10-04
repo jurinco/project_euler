@@ -25,4 +25,4 @@ end
 p [largest_palindrome_product(1), largest_palindrome_product(1) == [9, 1, 9]]
 p [largest_palindrome_product(2), largest_palindrome_product(2) == [99, 91, 9009]]
 
-p largest_palindrome_product(3)[2] # 906609
+p largest_palindrome_product(3)[2] # => 906609
