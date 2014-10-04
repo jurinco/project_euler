@@ -95,20 +95,35 @@ describe Euler do
   end
 
   describe 'triangular_num' do
+    it 'raises ArgumentError if i<0' do
+      expect{triangular_num(-1)}.to raise_error(ArgumentError)
+      expect{triangular_num(-5)}.to raise_error(ArgumentError)
+    end
+
     it 'returns the correct results' do
-      expect((1..5).map { |n| triangular_num(n) }).to eql([1, 3, 6, 10, 15])
+      expect((0..5).map { |i| triangular_num(i) }).to eql([0,1,3,6,10,15])
     end
   end
 
   describe 'pentagonal_num' do
+    it 'raises ArgumentError if i<0' do
+      expect{pentagonal_num(-1)}.to raise_error(ArgumentError)
+      expect{pentagonal_num(-5)}.to raise_error(ArgumentError)
+    end
+
     it 'returns the correct results' do
-      expect((1..5).map { |n| pentagonal_num(n) }).to eql([1, 5, 12, 22, 35])
+      expect((0..5).map { |i| pentagonal_num(i) }).to eql([0,1,5,12,22,35])
     end
   end
 
   describe 'hexagonal_num' do
+    it 'raises ArgumentError if i<0' do
+      expect{hexagonal_num(-1)}.to raise_error(ArgumentError)
+      expect{hexagonal_num(-5)}.to raise_error(ArgumentError)
+    end
+
     it 'returns the correct results' do
-      expect((1..5).map { |n| hexagonal_num(n) }).to eql([1, 6, 15, 28, 45])
+      expect((0..5).map { |i| hexagonal_num(i) }).to eql([0,1,6,15,28,45])
     end
   end
 end
