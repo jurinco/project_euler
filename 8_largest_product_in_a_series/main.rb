@@ -1,4 +1,24 @@
-require_relative 'largest_product_in_a_series'
+def largest_product_in_a_series(series, length)
+  series = series.split('') if series.class == String
+  largest = 0
+
+  start = 0
+  stop = length-1
+  while stop < series.length
+    candidate = series_product(series[start..stop])
+    largest = candidate if candidate > largest
+
+    start += 1
+    stop += 1
+  end
+
+  largest
+end
+
+def series_product(series)
+  series.map { |n| n.to_i }.reduce(:*)
+end
+
 
 series = ['73167176531330624919225119674426574742355349194934',
           '96983520312774506326239578318016984801869478851843',
@@ -21,5 +41,7 @@ series = ['73167176531330624919225119674426574742355349194934',
           '05886116467109405077541002256983155200055935729725',
           '71636269561882670428252483600823257530420752963450'].join
 
-puts largest_product_in_a_series(series, 13)
+# Test Case
+p [largest_product_in_a_series(series, 4), largest_product_in_a_series(series, 4) == 5832]
 
+p largest_product_in_a_series(series, 13) # => 23514624000
