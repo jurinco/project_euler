@@ -26,5 +26,5 @@ end
 p [collatz_length(13), collatz_length(13) == 10]
 
 puts Benchmark.measure {
-  puts "result: #{longest_collatz(1_000_000)[0]}"
+  puts "result: #{longest_collatz(1_000_000)[0]}" # => 837799
 }
