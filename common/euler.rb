@@ -45,10 +45,6 @@ module Euler
     new_num.flatten.join
   end
 
-  def perfect_number?(n)
-    n.proper_divisors.reduce(:+) == n
-  end
-
   def triangular_num(n)
     n * (n+1) / 2
   end

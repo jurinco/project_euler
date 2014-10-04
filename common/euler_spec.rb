@@ -50,15 +50,6 @@ describe Euler do
     end
   end
 
-  describe 'perfect_number?' do
-    it 'returns the correct result' do
-      expect(perfect_number?(26)).to eql(false)
-      expect(perfect_number?(27)).to eql(false)
-      expect(perfect_number?(28)).to eql(true)
-    end
-  end
-
-
   describe 'triangular_num' do
     it 'returns the correct results' do
       expect((1..5).map { |n| triangular_num(n) }).to eql([1, 3, 6, 10, 15])
