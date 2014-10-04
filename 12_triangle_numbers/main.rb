@@ -14,7 +14,7 @@ end
 
 def first_triangle_num_with_more_than_n_divisors(n)
   @triangular_nums.find { |t|
-    factors(t).length > n
+    t.factors.length > n
   }
 end
 

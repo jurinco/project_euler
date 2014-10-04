@@ -1,7 +1,26 @@
+class Integer
+  def factors
+    f_list = []
+    step = self.even? ? 1 : 2
+    upper_bound = Math.sqrt(self).to_i
+    (1..upper_bound).step(step).each { |i|
+      if self % i == 0
+        f_list << i
+        f_list << self / i unless i * i == self
+      end
+    }
+    f_list.sort
+  end
+
+  def proper_divisors
+    self.factors[0..-2]
+  end
+end
+
 module Euler
 
   def abundant_number?(n)
-    proper_divisors(n).reduce(:+) > n
+    n.proper_divisors.reduce(:+) > n
   end
 
   # binomial theorem, n choose k
@@ -40,11 +59,7 @@ module Euler
   end
 
   def perfect_number?(n)
-    proper_divisors(n).reduce(:+) == n
-  end
-
-  def proper_divisors(n)
-    factors(n)[0..-2]
+    n.proper_divisors.reduce(:+) == n
   end
 
   def triangular_num(n)
