@@ -6,6 +6,4 @@ sum = 0
   t = n.proper_divisors.reduce(&:+)
   sum += n if t != n && t.proper_divisors.reduce(&:+) == n
 }
-puts "amicable_sum: #{sum}"
-
-(2..10_000).map { |n| n}
+p sum # => 31626
