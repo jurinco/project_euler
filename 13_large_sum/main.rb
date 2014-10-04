@@ -7,4 +7,4 @@ end
 
 numbers.map! { |n| n[0..12].to_i }
 sum = numbers.reduce(:+)
-puts sum.to_s[0, 10]
+puts sum.to_s[0, 10] # => 5537376230
