@@ -1,6 +1,6 @@
 class Integer
   def abundant?
-    self.proper_divisors.reduce(:+) > self
+    (self.proper_divisors.reduce(:+) || 0) > self
   end
 
   def factorial

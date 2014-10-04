@@ -3,7 +3,12 @@ include Euler
 
 describe Integer do
   describe '#abundant?' do
-    it 'returns the correct result' do
+    it 'returns false if number has no proper_divisors (e.g. 0, 1)' do
+      expect(0.abundant?).to eql(false)
+      expect(1.abundant?).to eql(false)
+    end
+
+    it 'returns the correct result for values with proper_divisors' do
       expect(10.abundant?).to eql(false)
       expect(11.abundant?).to eql(false)
       expect(12.abundant?).to eql(true)
