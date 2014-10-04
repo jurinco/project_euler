@@ -59,15 +59,21 @@ module Euler
     new_num.flatten.join
   end
 
-  def triangular_num(n)
-    n * (n+1) / 2
+  # Return ith Triangular number. (index starts at 0)
+  def triangular_num(i)
+    raise ArgumentError, 'n must be >= 0' if i < 0
+    i * (i+1) / 2
   end
 
-  def pentagonal_num(n)
-    n * (3*n-1) / 2
+  # Return ith Pentagonal number. (index starts at 0)
+  def pentagonal_num(i)
+    raise ArgumentError, 'n must be >= 0' if i < 0
+    i * (3*i-1) / 2
   end
 
-  def hexagonal_num(n)
-    n * (2*n-1)
+  # Return ith Hexagonal number. (index starts at 0)
+  def hexagonal_num(i)
+    raise ArgumentError, 'n must be >= 0' if i < 0
+    i * (2*i-1)
   end
 end
