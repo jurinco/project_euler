@@ -1,22 +1,20 @@
-require 'benchmark'
 require_relative '../common/euler'
 include Euler
 
-limit = 28_123
-abundant_numbers = []
-(12..limit).each do |n|
-  abundant_numbers << n if n.abundant?
+upper_lim = 28_123
+
+abundant_nums = []
+(1..upper_lim).each do |n|
+  abundant_nums << n if n.abundant?
 end
 
-sums = []
-abundant_numbers.each do |x|
-  abundant_numbers.each do |y|
-    sum = x+y
-    sums << sum if sum <= limit
+sums = {}
+abundant_nums.each_with_index do |x, i|
+  abundant_nums[i..-1].each do |y|
+    sum = x + y
+    break if sum > upper_lim
+    sums[sum] = true
   end
 end
-sums.sort!.uniq!
 
-puts Benchmark.measure {
-  puts (1..limit).reject { |el| sums.include?(el) }.reduce(:+) # => 4179871
-}
+p (1..upper_lim).reject { |el| sums[el] }.reduce(:+) # => 4179871
