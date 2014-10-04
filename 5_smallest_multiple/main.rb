@@ -6,8 +6,8 @@ def smallest_multiple(values)
   min_step = values.select { |v| v.prime? }.reduce(:*)
   min = min_step
 
-  (min..max).step(min).each { |n|
-    return n if values.select { |v| n % v != 0 }.empty?
+  (min..max).step(min).find { |n|
+    values.select { |v| n % v != 0 }.empty?
   }
 end
 
