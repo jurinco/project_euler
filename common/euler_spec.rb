@@ -31,10 +31,31 @@ describe Integer do
     end
   end
 
+  describe '#hexagonal?' do
+    it 'returns the correct results' do
+      expect([1,6,15,28,45].all? { |n| n.hexagonal? }).to eql(true)
+      expect([7,8,9,10,46].all? { |n| n.hexagonal? }).to eql(false)
+    end
+  end
+
+  describe '#pentagonal?' do
+    it 'returns the correct results' do
+      expect([1,5,12,22,35].all? { |n| n.pentagonal? }).to eql(true)
+      expect([23,24,25,26,36].all? { |n| n.pentagonal? }).to eql(false)
+    end
+  end
+
   describe '#proper_divisors' do
     it 'returns the correct result' do
       expect(220.proper_divisors).to eql([1,2,4,5,10,11,20,22,44,55,110])
       expect(284.proper_divisors).to eql([1,2,4,71,142])
+    end
+  end
+
+  describe '#triangular?' do
+    it 'returns the correct results' do
+      expect([1,3,6,10,15].all? { |n| n.triangular? }).to eql(true)
+      expect([11,12,13,14,16].all? { |n| n.triangular? }).to eql(false)
     end
   end
 end
@@ -56,35 +77,15 @@ describe Euler do
     end
   end
 
-  describe 'triangular_num?' do
-    it 'returns the correct results' do
-      expect([1, 3, 6, 10, 15].all? { |n| triangular_num?(n) }).to eql(true)
-    end
-  end
-
-
   describe 'pentagonal_num' do
     it 'returns the correct results' do
       expect((1..5).map { |n| pentagonal_num(n) }).to eql([1, 5, 12, 22, 35])
     end
   end
 
-  describe 'pentagonal_num?' do
-    it 'returns the correct results' do
-      expect([1, 5, 12, 22, 35].all? { |n| pentagonal_num?(n) }).to eql(true)
-    end
-  end
-
-
   describe 'hexagonal_num' do
     it 'returns the correct results' do
       expect((1..5).map { |n| hexagonal_num(n) }).to eql([1, 6, 15, 28, 45])
-    end
-  end
-
-  describe 'hexagonal_num?' do
-    it 'returns the correct results' do
-      expect([1, 6, 15, 28, 45].all? { |n| hexagonal_num?(n) }).to eql(true)
     end
   end
 end
