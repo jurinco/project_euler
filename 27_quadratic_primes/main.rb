@@ -1,23 +1,20 @@
-require  'benchmark'
 require 'prime'
 
+# Insigts
+# b must be prime
+# 1-b < a < 0
 def quadradic_primes(limit)
-  primes = {}
-  Prime.take_while { |p|
-    if p <= limit**2
-      primes[p] = true
-    end
-  }
-
   max = Array.new(3,0)  # [a, b, n]
-  (-limit..limit).each do |a|
-    (-limit..limit).each do |b|
+
+  Prime.take_while do |b|
+    (1-b..-1).each do |a|
       n = 0
-      while primes[(n**2 + n*a + b).abs]
+      while (n**2 + n*a + b).prime?
         n += 1
       end
       max = [a, b, n] if n > max[2]
     end
+    b < limit
   end
   max
 end

@@ -1,3 +1,6 @@
+require 'prime'
+
+
 class Integer
   def abundant?
     (self.proper_divisors.reduce(:+) || 0) > self
@@ -42,6 +45,13 @@ end
 
 
 module Euler
+  # binomial theorem, n choose k
+  def binomial(n,k)
+    return 0 if n-k < 0
+    return 1 if n == k || k <= 0
+    n.factorial / ( k.factorial * (n-k).factorial )
+  end
+
   def fibonacci_nums
     Enumerator.new { |y|
       fib1, fib2 = 1, 1
@@ -54,13 +64,6 @@ module Euler
     }
   end
 
-  # binomial theorem, n choose k
-  def binomial(n,k)
-    return 0 if n-k < 0
-    return 1 if n == k || k <= 0
-    n.factorial / ( k.factorial * (n-k).factorial )
-  end
-
   def number_with_underscore_delimiter(n)
     arr = n.to_s.split('')
     new_num = arr.pop(3)
@@ -69,6 +72,16 @@ module Euler
       new_num.unshift(arr.pop(3))
     end
     new_num.flatten.join
+  end
+
+  def prime_hash(upper_bound)
+    primes = {}
+    Prime.take_while { |p|
+      if p <= upper_bound
+        primes[p] = true
+      end
+    }
+    primes
   end
 
   # Return ith Triangular number. (index starts at 0)
