@@ -1,16 +1,16 @@
+require_relative '../common/euler'
+include Euler
 
-fib1 = 1
-fib2 = 1
-term_count = 2
-
-while fib2.to_s.length < 1_000
-  term_count += 1
-  new_fib = fib1 + fib2
-  fib1 = fib2
-  fib2 = new_fib
+# Find the first Fibonacci number to have n digits
+# Return the Fibonacci number and it's index (e.g. [55, 10])
+def first_fib_of_length(n)
+  fibonacci_nums.with_index(1).find { |fib|
+    fib[0].to_s.length == n
+  }
 end
 
-puts "fib.length: #{fib2.to_s.length}"
-puts "fib: #{fib2}"
+p [first_fib_of_length(1), first_fib_of_length(1) == [1,1]]
+p [first_fib_of_length(2), first_fib_of_length(2) == [13,7]]
+p [first_fib_of_length(3), first_fib_of_length(3) == [144,12]]
 
-puts "term: #{term_count}"
+p first_fib_of_length(1_000)[1] # => 4782

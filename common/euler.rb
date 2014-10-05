@@ -42,6 +42,18 @@ end
 
 
 module Euler
+  def fibonacci_nums
+    Enumerator.new { |y|
+      fib1, fib2 = 1, 1
+      loop do
+        y.yield fib1
+        new_fib = fib1 + fib2
+        fib1 = fib2
+        fib2 = new_fib
+      end
+    }
+  end
+
   # binomial theorem, n choose k
   def binomial(n,k)
     return 0 if n-k < 0

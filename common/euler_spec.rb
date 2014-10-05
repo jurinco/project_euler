@@ -89,6 +89,16 @@ describe Euler do
     end
   end
 
+  describe '#fibonacci_numbers' do
+    it 'should return an Enumerator' do
+      expect(fibonacci_nums).to be_an(Enumerator)
+    end
+
+    it 'should return the correct values' do
+      expect(fibonacci_nums.first(10)).to eql([1,1,2,3,5,8,13,21,34,55])
+    end
+  end
+
   describe 'number_with_underscore_delimiter' do
     it 'returns the correct results' do
       expect(number_with_underscore_delimiter(1_000)).to eql('1_000')
