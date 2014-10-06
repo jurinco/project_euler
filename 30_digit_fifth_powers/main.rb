@@ -1,21 +1,23 @@
-pow = 5
+def digit_power_sums(power)
+  vals = []
+  len = 2
+  loop do
+    min = ('1' * len).to_i
+    max = 10**len - 1
+    max_sum = 9**power * len
+    break if max_sum < min
 
-i = 0
-vals = []
-loop do
-  min = 10**i
-  max = 10**(i+1) - 1
-  max_sum = 9**pow * (i+1)
-  break if max_sum < min
-
-  max = max < max_sum ? max : max_sum
-  (min..max).each do |n|
-    sum = n.to_s.split('').reduce(0) { |sum, n| sum + n.to_i ** pow }
-    vals << n if sum == n
+    max = max < max_sum ? max : max_sum
+    (min..max).each do |n|
+      sum = n.to_s.split('').reduce(0) { |sum, n| sum + n.to_i ** power }
+      vals << n if sum == n
+    end
+    len += 1
   end
-
-  i += 1
+  vals
 end
 
-puts "digits: #{vals.join(' ')}"
-puts "sum: #{vals.reduce(:+)}"
+# Test Case
+p [digit_power_sums(4), digit_power_sums(4) == [1634, 8208, 9474]]
+
+p digit_power_sums(5).reduce(:+) # => 443839
