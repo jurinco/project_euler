@@ -16,5 +16,5 @@ count = 0
     end
   end
 end
-puts "count: #{count}"
 
+p count # => 73682
