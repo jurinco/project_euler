@@ -8,8 +8,8 @@ triangle_words =
     triangle_nums.include?(sum)
   }
 
-# TEST
-# triangle_words.include?('SKY')
+# Test Case
+p ['SKY', triangle_words.include?('SKY') == true]
+p ['ART', triangle_words.include?('ART') == false]
 
-triangle_count = triangle_words.count
-puts "number of triangle words: #{triangle_count}"
+p triangle_words.count # => 162
