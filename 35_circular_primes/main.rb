@@ -10,6 +10,8 @@ def rotations(n)
   end
 end
 
+p [rotations(197), rotations(197) == [971, 719]]
+
 vals = []
 Prime.each do |n|
   break if n >= 1_000_000
