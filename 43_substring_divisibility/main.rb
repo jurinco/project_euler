@@ -10,7 +10,7 @@ vals =
 
 vals.map! { |digits| digits.join.to_i }
 
-# Test Case
+# Test Cases
 p [1406357289, vals.include?(1406357289) == true]
 p [9827536041, vals.include?(9827536041) == false]
 
