@@ -1,23 +1,23 @@
-def pandigital_product?(n, digits=nil)
-  digits ||= [n.to_s.split('')]
-  m = digits.length+1
-  digits << (n * m).to_s.split('')
-
-  d = digits.flatten.uniq.sort
-  if digits.flatten.length != d.length || d.length > 9 || d.include?('0')
-    return false
-  elsif d.length < 9
-    pandigital_product?(n, digits)
-  else
-    [true, digits.map { |product| product.join.to_i }]
+def pandigital_concat(n)
+  digits = n.to_s
+  (2..9).each do |i|
+    break if digits.length >= 9
+    digits += (n * i).to_s
   end
+  if digits.length == 9 && digits.split(//).sort == %w(1 2 3 4 5 6 7 8 9)
+    return digits.to_i
+  end
+  nil
 end
 
-vals = {}
-(2..100_000).each do |n|
-  result, digits = pandigital_product?(n)
-  vals[n] = digits if result
+# Test Cases
+p [pandigital_concat(192), pandigital_concat(192) == 192384576]
+p [pandigital_concat(9), pandigital_concat(9) == 918273645]
+
+max = 0
+(2..9_999).each do |n|
+  result = pandigital_concat(n) || 0
+  max = result if result > max
 end
 
-max = vals.map { |k,v| v.map(&:to_s).join }.max
-puts "largest pandigital product: #{max}"
+p max # => 932718654
