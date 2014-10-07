@@ -53,7 +53,7 @@ module Euler
   end
 
   def fibonacci_nums
-    Enumerator.new { |y|
+    Enumerator.new do |y|
       fib1, fib2 = 1, 1
       loop do
         y.yield fib1
@@ -61,7 +61,7 @@ module Euler
         fib1 = fib2
         fib2 = new_fib
       end
-    }
+    end
   end
 
   def number_with_underscore_delimiter(n)
