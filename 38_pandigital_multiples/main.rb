@@ -4,7 +4,7 @@ def pandigital_concat(n)
     break if digits.length >= 9
     digits += (n * i).to_s
   end
-  if digits.length == 9 && digits.split(//).sort == %w(1 2 3 4 5 6 7 8 9)
+  if digits.length == 9 && digits.chars.sort == %w(1 2 3 4 5 6 7 8 9)
     return digits.to_i
   end
   nil
