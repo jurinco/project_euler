@@ -1,20 +1,18 @@
-limit = 500
+lim = 500 # max length for any side when p <= 1000
 
-# vals = Hash.new([])
 counts = Hash.new(0)
-(2..limit).each do |a|
-  (a..limit).each do |b|
+(2..lim).each do |a|
+  (a..lim).each do |b|
     c = Math.sqrt(a**2 + b**2)
+    next if c % 1 != 0
     perim = (a+b+c).to_i
     next if perim > 1000
-    if c % 1 == 0
-      # vals[perim] += [[a, b, c.to_i]]
-      counts[perim] += 1
-    end
+    counts[perim] += 1
   end
 end
 
-max = counts.values.max
-# counts.select { |k,v| v == max }
-perim = counts.key(max)
-puts "perim with max number of solutions: #{perim}"
+# Test Case
+p [counts[120], counts[120] == 3]
+
+max = counts.max_by { |k,v| v }
+p max[0] # => 840
