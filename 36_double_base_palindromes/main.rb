@@ -1,3 +1,6 @@
+# Insights
+# Only odd numbers can be binary palindromes
+
 class String
   def palindrome?
     self == self.reverse
@@ -5,7 +8,7 @@ class String
 end
 
 palindromes =
-  (1..1_000_000).find_all { |n|
+  (1..1_000_000).step(2).find_all { |n|
     n.to_s.palindrome? && n.to_s(2).palindrome?
   }
 
