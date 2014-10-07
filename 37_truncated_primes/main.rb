@@ -1,8 +1,8 @@
 require 'prime'
 
 def right_to_left_prime?(n)
-  len = n.to_s.length
-  (len-1).times do
+  count = n.to_s.length - 1
+  count.times do
     n /= 10
     return false unless n.prime?
   end
@@ -10,8 +10,8 @@ def right_to_left_prime?(n)
 end
 
 def left_to_right_prime?(n)
-  m = n.to_s.length - 1
-  m.downto(1).each do |i|
+  l = n.to_s.length - 1
+  l.downto(1).each do |i|
     n %= 10**i
     return false unless n.prime?
   end
@@ -19,7 +19,6 @@ def left_to_right_prime?(n)
 end
 
 vals = []
-m = 1
 Prime.each do |p|
   next if p < 10
   break if vals.length == 11
@@ -28,5 +27,7 @@ Prime.each do |p|
   end
 end
 
-puts vals
-puts "sum: #{vals.reduce(:+)}"
+# Test Case
+p [3797, vals.include?(3797) == true]
+
+puts vals.reduce(:+) # => 748317
