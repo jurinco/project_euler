@@ -13,10 +13,10 @@ odd_composite_nums =
 result =
   odd_composite_nums.find do |c|
     max_s = Math.sqrt(c).to_i
-    (1..max_s).find { |s|
+    (1..max_s).find do |s|
       p = c - 2 * s**2
-      p.prime? && p > 0
-    } == nil
+      p > 0 && p.prime?
+    end == nil
   end
 
-puts result
+puts result # => 5777
