@@ -1,14 +1,17 @@
 ds = [2,3,5,7,11,13,17]
 
-vals = []
-('0'..'9').to_a.permutation.each { |p|
-  n = p.join
-  prop = ds.each_with_index.all? { |d,i|
-    n[i+1,3].to_i % d == 0
-  }
-  vals << n if prop
-}
+vals =
+  ('0'..'9').to_a.permutation.select do |p|
+    n = p.join
+    ds.each_with_index.all? { |d,i|
+      n[i+1,3].to_i % d == 0
+    }
+  end
 
-puts "values:", vals
-sum = vals.reduce(0) { |sum,v| sum + v.to_i }
-puts "sum: #{sum}"
+vals.map! { |digits| digits.join.to_i }
+
+# Test Case
+p [1406357289, vals.include?(1406357289) == true]
+p [9827536041, vals.include?(9827536041) == false]
+
+p vals.reduce(:+) # => 16695334890
