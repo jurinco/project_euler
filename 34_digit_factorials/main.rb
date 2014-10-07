@@ -1,30 +1,28 @@
-require 'benchmark'
+require_relative '../common/euler'
+include Euler
 
-class Integer
-  def factorial
-    return 1 if self == 0
-    (1..self).reduce(:*)
+# Returns numbers that equal the sum of the factorials of their digits
+def nums_that_eql_their_factorial_sum(upper_lim)
+  factorials = (0..9).map { |d| d.factorial }
+
+  (10..upper_lim).find_all do |n|
+    fact_sum = n.to_s.each_char.reduce(0) { |sum, d| sum + factorials[d.to_i] }
+    n == fact_sum
   end
 end
 
-puts Benchmark.measure {
-  factorials = (0..9).map { |d| d.factorial }
 
-  # Find upper limit
-  n = 1
-  while factorials[9] * n > 10**n-1
-    n += 1
-  end
-  limit = factorials[9] * n
+# Find upper limit
+n = 1
+while 9.factorial * n > 10**n-1
+  n += 1
+end
+upper_lim = 9.factorial * n # => 2540160
 
-  vals = []
-  (10..limit).each do |n|
-    digits = n.to_s.split('').map(&:to_i)
-    fact_sum = digits.reduce(0) { |sum, d| sum + factorials[d] }
-    vals << n if fact_sum == n
-  end
 
-  vals.each { |n| puts n }
-  sum = vals.reduce(:+)
-  puts "sum: #{sum}"
-}
+nums = nums_that_eql_their_factorial_sum(upper_lim)
+
+# Test Case
+p [145, nums.include?(145) == true]
+
+p nums.reduce(:+) # => 40730
