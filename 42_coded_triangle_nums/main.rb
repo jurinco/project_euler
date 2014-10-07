@@ -8,7 +8,7 @@ triangle_words =
     triangle_nums.include?(sum)
   }
 
-# Test Case
+# Test Cases
 p ['SKY', triangle_words.include?('SKY') == true]
 p ['ART', triangle_words.include?('ART') == false]
 
