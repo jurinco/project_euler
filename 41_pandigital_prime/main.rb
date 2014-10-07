@@ -1,18 +1,24 @@
 require 'prime'
 
-# N cannot be prime if the sum of the digits in N is divisible by 3
-max_n = 9.downto(4).find { |n|
-  (1..n).reduce(:+) % 3 != 0
-}
+# A number cannot be prime if the sum of its digits is divisible by 3.
+# Therefore, only primes with lengths 1, 4, and 7 can be n-digit pandigital.
+def pandigital_lengths
+  (1..9).to_a.keep_if { |i|
+    sum = (1..i).reduce(:+)
+    sum % 3 != 0
+  }
+end
 
-max = 0
-digits = []
-('1'..max_n.to_s).each do |n|
-  digits << n
-  digits.permutation.each do |p|
-    p = p.join.to_i
-    max = p if p.prime?
+# Start with the max value and check if successively smaller n-digit pandigitals are prime
+def largest_pandigital
+  lengths = pandigital_lengths
+  lengths.reverse.each do |l|
+    digits = ('1'..l.to_s).to_a.reverse
+    digits.permutation.each do |p|
+      p = p.join.to_i
+      return p if p.prime?
+    end
   end
 end
 
-puts "max: #{max}"
+p largest_pandigital # => 7652413
