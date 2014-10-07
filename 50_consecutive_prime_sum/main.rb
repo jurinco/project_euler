@@ -1,19 +1,10 @@
 require 'prime'
-require 'benchmark'
 
-# lim = 100 # 41
-# lim = 1_000 # 953
-# lim = 10_000 # 9521
-# lim = 100_000 # 92951
-lim = 1_000_000 # 997651
+# Find the prime under limit with that equals the sum of the most consecutive primes.
+# Return the prime and the number of consecutive primes
+def longest(limit)
+  primes = Prime.take_while { |p| p <= limit / 3 }
 
-primes = []
-Prime.each do |p|
-  primes << p
-  break if p > lim / 3
-end
-
-puts Benchmark.measure {
   max_sum = 0
   max_len = 0
   primes_last_i = primes.count-1
@@ -25,15 +16,19 @@ puts Benchmark.measure {
     while j <= primes_last_i
       len = j+1 - i
       sum += primes[j]
-      break if sum > lim
+      break if sum > limit
       if len > max_len && sum.prime?
         max_len = len
         max_sum = sum
-        # puts "sum: #{sum}, len: #{max_len}"
       end
       j += 1
     end
   end
+  [max_sum, max_len]
+end
 
-  puts "max sum: #{max_sum}"
-}
+# Test Cases
+p [longest(100), longest(100) == [41, 6]]
+p [longest(1000), longest(1000) == [953, 21]]
+
+p longest(1_000_000)[0] # => 997651
