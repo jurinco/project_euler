@@ -42,6 +42,8 @@ class PokerHand
     end
   end
 
+  private
+
   def flush?
     cards.all? { |card| card.suit == cards[0].suit }
   end
@@ -85,22 +87,7 @@ class PokerHand
     [r1, r2].sort { |a,b| b <=> a }
   end
 
-  private
-
   def card_ranks_excluding(*excluded_vals)
     card_ranks.select { |r| !excluded_vals.include?(r) }
   end
 end
-
-
-
-# class PokerGame
-#   def initialize(hands)
-#     @hands = hands
-#   end
-
-#   def winner
-#     raise StandardError, 'hands must not be empty' if @hands.empty?
-#     hands.max
-#   end
-# end

@@ -78,45 +78,45 @@ describe PokerHand do
 
   describe '#straight?' do
     it 'returns true when there is a straight' do
-      expect(straight.straight?).to     eql(true)
-      expect(strt_flush.straight?).to   eql(true)
-      expect(ace_low_str.straight?).to  eql(true)
-      expect(ace_high_str.straight?).to eql(true)
+      expect(straight.send(:straight?)).to     eql(true)
+      expect(strt_flush.send(:straight?)).to   eql(true)
+      expect(ace_low_str.send(:straight?)).to  eql(true)
+      expect(ace_high_str.send(:straight?)).to eql(true)
     end
 
     it 'returns false when there is not a straight' do
-      expect(four_kind.straight?).to  eql(false)
-      expect(full_house.straight?).to eql(false)
-      expect(flush.straight?).to      eql(false)
-      expect(three_kind.straight?).to eql(false)
-      expect(two_pair.straight?).to   eql(false)
-      expect(one_pair.straight?).to   eql(false)
-      expect(king_high.straight?).to  eql(false)
+      expect(four_kind.send(:straight?)).to  eql(false)
+      expect(full_house.send(:straight?)).to eql(false)
+      expect(flush.send(:straight?)).to      eql(false)
+      expect(three_kind.send(:straight?)).to eql(false)
+      expect(two_pair.send(:straight?)).to   eql(false)
+      expect(one_pair.send(:straight?)).to   eql(false)
+      expect(king_high.send(:straight?)).to  eql(false)
     end
   end
 
   describe '#flush?' do
     it 'returns true when there is a flush' do
-      expect(flush.flush?).to      eql(true)
-      expect(strt_flush.flush?).to eql(true)
+      expect(flush.send(:flush?)).to      eql(true)
+      expect(strt_flush.send(:flush?)).to eql(true)
     end
 
     it 'returns false when there is not a flush' do
-      expect(straight.flush?).to     eql(false)
-      expect(ace_low_str.flush?).to  eql(false)
-      expect(ace_high_str.flush?).to eql(false)
-      expect(four_kind.flush?).to    eql(false)
-      expect(full_house.flush?).to   eql(false)
-      expect(three_kind.flush?).to   eql(false)
-      expect(two_pair.flush?).to     eql(false)
-      expect(one_pair.flush?).to     eql(false)
-      expect(king_high.flush?).to    eql(false)
+      expect(straight.send(:flush?)).to     eql(false)
+      expect(ace_low_str.send(:flush?)).to  eql(false)
+      expect(ace_high_str.send(:flush?)).to eql(false)
+      expect(four_kind.send(:flush?)).to    eql(false)
+      expect(full_house.send(:flush?)).to   eql(false)
+      expect(three_kind.send(:flush?)).to   eql(false)
+      expect(two_pair.send(:flush?)).to     eql(false)
+      expect(one_pair.send(:flush?)).to     eql(false)
+      expect(king_high.send(:flush?)).to    eql(false)
     end
   end
 
   describe '#two_pair' do
     it 'returns two pair when they exist' do
-      expect(two_pair.two_pair).to eql([6,3])
+      expect(two_pair.send(:two_pair)).to eql([6,3])
     end
   end
 end
