@@ -38,6 +38,14 @@ class Integer
     n % 1 == 0
   end
 
+  def prime?
+    return false if self % 2 == 0
+    3.step((self**0.5).floor, 2) { |i|
+      return false if self % i == 0
+    }
+    true
+  end
+
   def proper_divisors
     self.factors[0..-2]
   end

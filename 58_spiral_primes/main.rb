@@ -1,9 +1,10 @@
 require 'benchmark'
-require 'prime'
+require_relative '../common/euler'
+include Euler
 
 def spiral(ratio)
-  diagonal_count = 1
-  prime_count = 0.0
+  d_count = 1     # diagonal count
+  p_count = 0.0   # prime count
   gap = 2
   n = 1
 
@@ -12,14 +13,13 @@ def spiral(ratio)
     count = 0
     4.times {
       n += gap
-      prime_count += 1 if n.prime?
+      p_count += 1 if n.prime?
     }
-    diagonal_count += 4
+    d_count += 4
     gap += 2
 
-    prime_ratio = prime_count / diagonal_count
-    if prime_ratio < ratio
-      side_length = diagonal_count / 2 + 1
+    if p_count / d_count < ratio
+      side_length = d_count / 2 + 1
       return side_length
     end
   end
