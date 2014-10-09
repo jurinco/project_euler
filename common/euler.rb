@@ -6,6 +6,10 @@ class Integer
     (self.proper_divisors.reduce(:+) || 0) > self
   end
 
+  def digital_sum
+    self.to_s.chars.reduce(0) { |sum,n| sum + n.to_i }
+  end
+
   def factorial
     return 1 if self == 0
     (1..self).reduce(:*)

@@ -15,6 +15,14 @@ describe Integer do
     end
   end
 
+  describe '#digital_sum' do
+    it 'returns the correct result' do
+      expect(123.digital_sum).to eql(6)
+      expect(888.digital_sum).to eql(24)
+      expect(8459.digital_sum).to eql(26)
+    end
+  end
+
   describe '#factorial' do
     it 'returns the correct result' do
       expect(0.factorial).to eql(1)
