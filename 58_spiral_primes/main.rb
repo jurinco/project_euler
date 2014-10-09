@@ -1,4 +1,3 @@
-require 'benchmark'
 require_relative '../common/euler'
 include Euler
 
@@ -29,7 +28,4 @@ end
 p [spiral(0.61), spiral(0.61) == 3]
 p [spiral(0.56), spiral(0.56) == 5]
 
-
-puts Benchmark.measure {
-  p spiral(0.1) # => 26241
-}
+p spiral(0.1) # => 26241
