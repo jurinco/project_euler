@@ -39,8 +39,9 @@ class Integer
   end
 
   def prime?
-    return false if self % 2 == 0
-    3.step((self**0.5).floor, 2) { |i|
+    return true if self == 2
+    return false if self < 2 || self % 2 == 0
+    (3..(self**0.5).floor).step(2) { |i|
       return false if self % i == 0
     }
     true

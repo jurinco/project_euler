@@ -65,6 +65,34 @@ describe Integer do
     end
   end
 
+  describe '#prime?' do
+    context 'when number is negative' do
+      it 'returns false' do
+        expect(-1.prime?).to eql(false)
+        expect(-2.prime?).to eql(false)
+        expect(-3.prime?).to eql(false)
+        expect(-4.prime?).to eql(false)
+      end
+    end
+
+    it 'returns false for values that are not prime' do
+      expect(0.prime?).to eql(false)
+      expect(1.prime?).to eql(false)
+      expect(4.prime?).to eql(false)
+      expect(21.prime?).to eql(false)
+      expect(57.prime?).to eql(false)
+    end
+
+    it 'returns true for values that are prime' do
+      expect(2.prime?).to eql(true)
+      expect(3.prime?).to eql(true)
+      expect(5.prime?).to eql(true)
+      expect(23.prime?).to eql(true)
+      expect(31.prime?).to eql(true)
+      expect(104729.prime?).to eql(true)
+    end
+  end
+
   describe '#triangular?' do
     it 'returns the correct results' do
       expect([1,3,6,10,15].all? { |n| n.triangular? }).to eql(true)
