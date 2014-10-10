@@ -87,16 +87,6 @@ module Euler
     new_num.flatten.join
   end
 
-  def prime_hash(upper_bound)
-    primes = {}
-    Prime.take_while { |p|
-      if p <= upper_bound
-        primes[p] = true
-      end
-    }
-    primes
-  end
-
   # Return ith Triangular number. (index starts at 0)
   def triangular_num(i)
     raise ArgumentError, 'n must be >= 0' if i < 0
