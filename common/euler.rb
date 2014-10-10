@@ -40,7 +40,7 @@ class Integer
 
   def prime?
     return true if self == 2
-    return false if self < 2 || self % 2 == 0
+    return false if self.even? || self < 2
     (3..(self**0.5).floor).step(2) { |i|
       return false if self % i == 0
     }
