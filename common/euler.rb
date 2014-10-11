@@ -42,13 +42,13 @@ class Integer
   end
 
 
-  def is_polygonal?(s)
+  def polygonal?(s)
     n = (Math.sqrt(8*(s-2)*self + (s-4)**2) + (s-4)) / 2*(s-2)
     n % 1 == 0
   end
 
   def triangular?
-    is_polygonal?(3)
+    polygonal?(3)
   end
 
   def square?
@@ -56,19 +56,19 @@ class Integer
   end
 
   def pentagonal?
-    is_polygonal?(5)
+    polygonal?(5)
   end
 
   def hexagonal?
-    is_polygonal?(6)
+    polygonal?(6)
   end
 
   def heptagonal?
-    is_polygonal?(7)
+    polygonal?(7)
   end
 
   def octagonal?
-    is_polygonal?(8)
+    polygonal?(8)
   end
 end
 
