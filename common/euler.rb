@@ -28,16 +28,6 @@ class Integer
     f_list.sort
   end
 
-  def hexagonal?
-    n = (Math.sqrt(8*self+1) + 1) / 4
-    n % 1 == 0
-  end
-
-  def pentagonal?
-    n = (Math.sqrt(24*self+1) + 1) / 6
-    n % 1 == 0
-  end
-
   def prime?
     return true if self == 2
     return false if self.even? || self < 2
@@ -51,8 +41,34 @@ class Integer
     self.factors[0..-2]
   end
 
+
+  def is_polygonal?(s)
+    n = (Math.sqrt(8*(s-2)*self + (s-4)**2) + (s-4)) / 2*(s-2)
+    n % 1 == 0
+  end
+
   def triangular?
-    Math.sqrt(8*self+1) % 1 == 0
+    is_polygonal?(3)
+  end
+
+  def square?
+    Math.sqrt(self) % 1 == 0
+  end
+
+  def pentagonal?
+    is_polygonal?(5)
+  end
+
+  def hexagonal?
+    is_polygonal?(6)
+  end
+
+  def heptagonal?
+    is_polygonal?(7)
+  end
+
+  def octagonal?
+    is_polygonal?(8)
   end
 end
 

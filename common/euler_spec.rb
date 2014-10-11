@@ -44,20 +44,6 @@ describe Integer do
     end
   end
 
-  describe '#hexagonal?' do
-    it 'returns the correct results' do
-      expect([1,6,15,28,45].all? { |n| n.hexagonal? }).to eql(true)
-      expect([7,8,9,10,46].all? { |n| n.hexagonal? }).to eql(false)
-    end
-  end
-
-  describe '#pentagonal?' do
-    it 'returns the correct results' do
-      expect([1,5,12,22,35].all? { |n| n.pentagonal? }).to eql(true)
-      expect([23,24,25,26,36].all? { |n| n.pentagonal? }).to eql(false)
-    end
-  end
-
   describe '#proper_divisors' do
     it 'returns the correct result' do
       expect(220.proper_divisors).to eql([1,2,4,5,10,11,20,22,44,55,110])
@@ -93,10 +79,44 @@ describe Integer do
     end
   end
 
+  describe '#octagonal?' do
+    it 'returns the correct results' do
+      expect([1,8,21,40,65].all? { |n| n.octagonal? }).to eql(true)
+      expect([11,12,13,14,16].all? { |n| n.octagonal? }).to eql(false)
+    end
+  end
+
   describe '#triangular?' do
     it 'returns the correct results' do
       expect([1,3,6,10,15].all? { |n| n.triangular? }).to eql(true)
       expect([11,12,13,14,16].all? { |n| n.triangular? }).to eql(false)
+    end
+  end
+
+  describe '#square?' do
+    it 'returns the correct results' do
+      expect([1,4,9,16,25].all? { |n| n.square? }).to eql(true)
+      expect([7,8,10,11,46].all? { |n| n.square? }).to eql(false)
+    end
+  end
+  describe '#pentagonal?' do
+    it 'returns the correct results' do
+      expect([1,5,12,22,35].all? { |n| n.pentagonal? }).to eql(true)
+      expect([23,24,25,26,36].all? { |n| n.pentagonal? }).to eql(false)
+    end
+  end
+
+  describe '#hexagonal?' do
+    it 'returns the correct results' do
+      expect([1,6,15,28,45].all? { |n| n.hexagonal? }).to eql(true)
+      expect([7,8,9,10,46].all? { |n| n.hexagonal? }).to eql(false)
+    end
+  end
+
+  describe '#heptagonal?' do
+    it 'returns the correct results' do
+      expect([1,7,18,34,55].all? { |n| n.heptagonal? }).to eql(true)
+      expect([19,20,21,22,33].all? { |n| n.heptagonal? }).to eql(false)
     end
   end
 end
