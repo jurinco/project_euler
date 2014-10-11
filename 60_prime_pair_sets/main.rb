@@ -5,12 +5,12 @@
 
 require 'prime'
 require 'benchmark'
+require_relative '../common/euler'
 
 puts Benchmark.measure {
-  # Take primes > 2
-  primes = Prime.take_while { |p| p <= 9_000 }
-  primes.delete(2)
-  primes.map!(&:to_s)
+  primes = Prime.take_while { |p| p < 9_000 }.map(&:to_s)
+  primes.delete('2')
+  primes.delete('5')
 
   # Build graph
   g = Hash.new { |h,k| h[k] = [] }
@@ -18,8 +18,8 @@ puts Benchmark.measure {
   primes.each_with_index do |p,i|
     primes[i+1..-1].each { |q|
       if (p+q).to_i.prime? && (q+p).to_i.prime?
-        g[p.to_i] << q.to_i
-        g[q.to_i] << p.to_i
+        g[p] << q
+        g[q] << p
       end
     }
   end
@@ -54,8 +54,9 @@ puts Benchmark.measure {
       c5 << (ns + [m]).sort
     end
   end
-  p c5.uniq!
-  p c5.map { |vs| vs.reduce(:+) }.min
+  c5.uniq!
+
+  p c5.map { |vs| vs.map(&:to_i).reduce(:+) }.min # => 26033
 }
 
 # p [find_clique(g,4), find_clique(g,4) == [3,7,109,673]]
