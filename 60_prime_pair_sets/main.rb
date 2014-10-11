@@ -8,7 +8,7 @@ require 'benchmark'
 require_relative '../common/euler'
 
 puts Benchmark.measure {
-  primes = Prime.take_while { |p| p < 9_000 }.map(&:to_s)
+  primes = Prime.take_while { |p| p < 8500 }.map(&:to_s)
   primes.delete('2')
   primes.delete('5')
 
@@ -18,8 +18,8 @@ puts Benchmark.measure {
   primes.each_with_index do |p,i|
     primes[i+1..-1].each { |q|
       if (p+q).to_i.prime? && (q+p).to_i.prime?
-        g[p] << q
-        g[q] << p
+        g[p.to_i] << q.to_i
+        g[q.to_i] << p.to_i
       end
     }
   end
@@ -46,6 +46,11 @@ puts Benchmark.measure {
   end
   c4.uniq!
 
+  # Test Case
+  c4_min = c4.map { |vals| vals.reduce(:+) }.min
+  i = c4.find_index { |vals| vals.reduce(:+) == c4_min }
+  p [c4[i], c4[i] == [3,7,109,673]]
+
   # Build 5-cliques
   c5 = []
   c4.each do |ns|
@@ -56,7 +61,5 @@ puts Benchmark.measure {
   end
   c5.uniq!
 
-  p c5.map { |vs| vs.map(&:to_i).reduce(:+) }.min # => 26033
+  p c5.map { |vals| vals.reduce(:+) }.min # => 26033
 }
-
-# p [find_clique(g,4), find_clique(g,4) == [3,7,109,673]]
