@@ -40,28 +40,72 @@ counts.min_by { |k,v| v }
 #     end
 #   end
 # end
+#
+# p3s.each do |p|
+#   build(p, polys=[4,5])
+# end
+# # [2556, 5612, 1225]
+# # [8128, 2882, 8281]
+# # [8515, 1521, 2185]
 
-def build(chain, polys=[3,4,5])
+
+def build(chain, polys=[3,4,5], done=[])
   chain = [chain] unless chain.class == Array
+  p_left = polys - done
+  # puts "chain: #{chain}, polys: #{polys}, done: #{done}, p_left: #{p_left}"
   first = chain.last % 100 * 100
-
-  if polys.length == 1
+  if p_left.length == 1
     last = chain.first / 100
     num = first + last
-    if num.polygonal?(polys.first)
+    if polys.count { |s| num.polygonal?(s) } == 1 && num.polygonal?(p_left.first)
       puts "#{chain + [num]} FINISHED"
       return num
     end
   else
     (10..99).each do |i|
       num = first + i
-      p = polys.first
-      if num.polygonal?(p)
-        build(chain + [num], polys[1..-1])
+      d = p_left.select { |s| num.polygonal?(s) }
+      if d.count == 1 && polys.count { |s| num.polygonal?(s) } == 1
+        # p "adding: #{d}, chain: #{chain}"
+        build(chain + [num], polys, done + d)
       end
     end
   end
 end
+
+
+# p3s.each do |p|
+#   build(p, polys=[3,4,5], done=[3])
+# end
+
+# p3s.each do |p|
+#   build(p, polys=[3,4,5,6], done=[3])
+# end
+
+
+# def build(chain, polys=[3,4,5])
+#   chain = [chain] unless chain.class == Array
+#   first = chain.last % 100 * 100
+#   if polys.length == 1
+#     last = chain.first / 100
+#     num = first + last
+#     if num.polygonal?(polys.first)
+#       puts "#{chain + [num]} FINISHED"
+#       return num
+#     end
+#   else
+#     (10..99).each do |i|
+#       num = first + i
+#       p = polys.first
+#       if num.polygonal?(p)
+#         build(chain + [num], polys[1..-1])
+#       end
+#     end
+#   end
+# end
+
+
+
 
 
 p3s = []
@@ -156,7 +200,7 @@ end
 [8515, 1521, 2147, 4753, 5359, 5985].map { |n| n.polygonal?(3) }
 
 p3s.each do |p|
-  build(p, [4,5,6,7,8].reverse)
+  build(p, [4,5,6,7,8])
 end
 
 
