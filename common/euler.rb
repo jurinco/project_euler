@@ -43,7 +43,7 @@ class Integer
 
 
   def polygonal?(s)
-    n = (Math.sqrt(8*(s-2)*self + (s-4)**2) + (s-4)) / 2*(s-2)
+    n = (Math.sqrt(8*(s-2)*self + (s-4)**2) + (s-4)) / (2*(s-2))
     n % 1 == 0
   end
 

@@ -79,6 +79,13 @@ describe Integer do
     end
   end
 
+  describe '#polyagonal?' do
+    it 'returns the correct results' do
+      expect([1,8,21,40,65].all? { |n| n.polygonal? 8 }).to eql true
+      expect((41..64).all? { |n| n.polygonal?(8) == false }).to eql true
+    end
+  end
+
   describe '#octagonal?' do
     it 'returns the correct results' do
       expect([1,8,21,40,65].all? { |n| n.octagonal? }).to eql(true)
