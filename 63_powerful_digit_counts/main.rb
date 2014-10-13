@@ -1,11 +1,11 @@
+# Insights
+# max_n = 10, because there are n+1 digits in 10**n
+
 class Integer
   def length
     Math.log10(self).floor + 1
   end
 end
-
-# Insights
-# max_n = 10, because there are n+1 digits in 10**n
 
 vals = []
 (1..9).each do |n|
