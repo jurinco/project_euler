@@ -1,5 +1,5 @@
 # Insights
-# max_n = 10, because there are n+1 digits in 10**n
+# max_n = 9, because there are n+1 digits in 10**n
 
 class Integer
   def length
