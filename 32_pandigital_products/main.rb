@@ -2,7 +2,7 @@ def pandigital_products(limit)
   products = []
   (1..limit).each do |i|
     (i+1..limit).each do |j|
-      digits = [i, j, i*j].map { |n| n.to_s.split('') }.flatten
+      digits = [i, j, i*j].flat_map { |n| n.to_s.split('') }
       break if digits.length > 9
       if digits.sort.join == '123456789'
         products << [i, j, i*j]
