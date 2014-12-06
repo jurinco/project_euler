@@ -1,6 +1,6 @@
 -- What is the largest prime factor of the number 600851475143 ?
 
-primeFactors :: Integral t => t -> [t]
+primeFactors :: Integral a => a -> [a]
 primeFactors n =
   case factor of
     [] -> [n]
@@ -10,4 +10,4 @@ primeFactors n =
 
 -- primeFactors 13195 == [5,7,13,29]
 
-maximum (primeFactors 600851475143) == 6857
+-- maximum (primeFactors 600851475143) == 6857
