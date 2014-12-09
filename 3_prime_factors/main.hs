@@ -6,7 +6,7 @@ primeFactors n =
     [] -> [n]
     [x] -> x : primeFactors (div n x)
   where
-    factor = take 1 (filter (\ x -> mod n x == 0) [2 .. intRoot n])
+    factor = take 1 . filter (\ x -> mod n x == 0) $ [2 .. intRoot n]
 
 intRoot :: Integer -> Integer
 intRoot = floor . sqrt . fromInteger
