@@ -1,4 +1,5 @@
-require 'prime'
+# What is the largest prime factor of the number 600851475143?
+require_relative 'euler'
 
 def largest_prime_factor(n)
   return nil if n.prime?
