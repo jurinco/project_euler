@@ -1,6 +1,6 @@
 module Euler
 ( factors
-, fibStream
+, fibs
 , isPrime
 , primeFactors
 , primes
@@ -16,10 +16,8 @@ factors n =
       | mod n x == 0 = x : (div n x) : helper n (x + 1)
       | otherwise    = helper n (x + 1)
 
-fibStream :: [Integer]
-fibStream = fib 1 2
-  where
-    fib a b = a : fib b (a+b)
+fibs :: Integral a => [a]
+fibs = 1 : scanl (+) 1 fibs
 
 intRoot :: Integer -> Integer
 intRoot = floor . sqrt . fromInteger

@@ -2,7 +2,7 @@
 import Euler
 
 sumEvenFibs :: Integer -> Integer
-sumEvenFibs n = sum $ takeWhile (< n) $ filter even fibStream
+sumEvenFibs n = sum $ takeWhile (< n) $ filter even fibs
 
 test0 = sumEvenFibs 10 == 10
 test1 = sumEvenFibs 20 == 10
