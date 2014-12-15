@@ -4,7 +4,7 @@ def multiples(limit=1_000)
     if (n % 3 == 0 || n % 5 == 0)
       sum + n
     else
-      sum + 0
+      sum
     end
   end
 end
