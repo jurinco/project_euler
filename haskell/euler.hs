@@ -3,6 +3,7 @@ module Euler
 , fibStream
 , isPrime
 , primeFactors
+, primes
 ) where
 
 -- Return an unsorted list of factors of number n
@@ -24,8 +25,8 @@ intRoot :: Integer -> Integer
 intRoot = floor . sqrt . fromInteger
 
 -- Return True if a number is prime, else False
-isPrime :: Integral a => a -> Bool
-isPrime n = length (factors n) == 2
+isPrime :: Integer -> Bool
+isPrime n = primeFactors n == [n]
 
 primeFactors :: Integer -> [Integer]
 primeFactors n =
@@ -34,3 +35,6 @@ primeFactors n =
     [x] -> x : primeFactors (div n x)
   where
     factor = take 1 . filter (\ x -> mod n x == 0) $ [2 .. intRoot n]
+
+primes :: [Integer]
+primes = filter isPrime [2..]

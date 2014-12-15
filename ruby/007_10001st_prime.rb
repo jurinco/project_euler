@@ -1,3 +1,4 @@
+# What is the 10 001st prime number?
 require 'prime'
 
 # Return the nth prime with n >= 1
