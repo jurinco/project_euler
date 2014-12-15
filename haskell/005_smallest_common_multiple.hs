@@ -13,5 +13,4 @@ minCommonMultiple r =
       | otherwise                   = helper (n + min_n) r
 
 test0 = minCommonMultiple [1..10] == 2520
-
 solution = minCommonMultiple [1..20] -- 232792560

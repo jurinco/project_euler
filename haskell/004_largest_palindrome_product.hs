@@ -9,5 +9,4 @@ largestPalindromeProduct d = maximum [p | x <- [lb..ub], y <- [x..ub], let p = x
 
 test0 = largestPalindromeProduct 1 == 9
 test1 = largestPalindromeProduct 2 == 9009
-
 solution = largestPalindromeProduct 3 -- 906609

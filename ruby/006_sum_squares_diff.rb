@@ -1,3 +1,6 @@
+# Find the difference between the sum of the squares of the first
+# one hundred natural numbers and the square of the sum.
+
 # Square every values in an array, then sum the results
 def sum_of_squares(vals)
   vals.map { |v| v ** 2 }.reduce(:+)
@@ -18,6 +21,4 @@ p [sum_of_squares(vals), sum_of_squares(vals) == 385]
 p [square_of_sum(vals), square_of_sum(vals) == 3025]
 p [sum_square_diff(vals), sum_square_diff(vals) == 2640]
 
-
-vals = (1..100).to_a
-puts sum_square_diff(vals) # => 25164150
+p sum_square_diff (1..100).to_a # => 25164150
