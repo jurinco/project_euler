@@ -16,8 +16,10 @@ factors n =
       | mod n x == 0 = x : (div n x) : helper n (x + 1)
       | otherwise    = helper n (x + 1)
 
-fibs :: Integral a => [a]
-fibs = 1 : scanl (+) 1 fibs
+fibs :: [Integer]
+fibs = fib 1 2
+  where
+    fib a b = a : fib b (a+b)
 
 intRoot :: Integer -> Integer
 intRoot = floor . sqrt . fromInteger
