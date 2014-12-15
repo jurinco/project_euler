@@ -1,5 +1,4 @@
 require_relative '../common/euler'
-
 include Euler
 
 @triangular_nums = Enumerator.new do |y|

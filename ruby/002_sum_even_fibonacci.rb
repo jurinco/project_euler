@@ -1,18 +1,9 @@
 # Sum the even-valued terms of the Fibonacci sequence which have a value <= four million.
-def sum_even_fibonacci(limit=4_000_000)
-  n1 = 1
-  n2 = 1
-  sum = 0
+require_relative 'euler'
+include Euler
 
-  while n2 < limit
-    new_n = n1 + n2
-    n1 = n2
-    n2 = new_n
-
-    sum += n1 if n1.even?
-  end
-
-  sum
+def sum_even_fibonacci(lim)
+  fibonacci_nums.take_while { |n| n < lim }.select { |n| n.even? }.reduce(:+)
 end
 
 # Test cases
@@ -20,4 +11,4 @@ p [sum_even_fibonacci(10), sum_even_fibonacci(10) == 10]
 p [sum_even_fibonacci(20), sum_even_fibonacci(20) == 10]
 p [sum_even_fibonacci(100), sum_even_fibonacci(100) == 44]
 
-p sum_even_fibonacci # => 4613732
+p sum_even_fibonacci(4_000_000) # => 4613732
