@@ -15,5 +15,5 @@ pythagoreanTriplets n =
 
 solve n = product . head . pythagoreanTriplets $ n
 
--- solve 12 == 60
--- solve 1000 == 31875000
+test0 = solve 12 == 60
+solution = solve 1000 -- 31875000

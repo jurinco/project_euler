@@ -1,3 +1,5 @@
+# Find the sum of all the primes below two million.
+
 require 'prime'
 
 def summation_of_primes(limit)
