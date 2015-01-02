@@ -4,11 +4,17 @@
 import Data.Char
 import Data.List
 
-maxProductInStream n = do
-  contents <- readFile "data.txt"
-  let stream = map digitToInt . concat . lines $ contents
-  let windows = map (take n) . tails $ stream
-  print . maximum . map product $ windows
+parse :: String -> [Int]
+parse = map digitToInt . concat . lines
+
+windows :: Int -> [Int] -> [[Int]]
+windows n = map (take n) . tails
+
+main = do
+  let n = 13
+  raw_data <- readFile "data.txt"
+  let stream = parse raw_data
+  print . maximum . map product . windows n $ stream
 
 -- maxProductInStream 4 -- 5832
 -- maxProductInStream 13 -- 23514624000
